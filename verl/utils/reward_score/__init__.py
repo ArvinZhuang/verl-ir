@@ -36,6 +36,9 @@ def _default_compute_score(data_source, solution_str, ground_truth, extra_info=N
     elif data_source in ['setwise-r1']:
         from . import setwise_r1
         res = setwise_r1.compute_score(solution_str, ground_truth)
+    elif data_source in ['hyde-bm25']:
+        from . import hyde_bm25
+        res = hyde_bm25.compute_score(solution_str, ground_truth)
     else:
         raise NotImplementedError
 
