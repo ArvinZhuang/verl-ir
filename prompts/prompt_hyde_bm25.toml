@@ -1,0 +1,7 @@
+prompt_user = """Query: {query}
+Given the above query. Write a hypothetical positive document, or key words of the positive document. Put your reasoning process in between <think> </think>. Then write the search engine input as as 'Keywords: <your input>'"""
+
+pattern = 'Keywords: (.*)'
+
+
+
