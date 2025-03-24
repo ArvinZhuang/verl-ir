@@ -5,7 +5,7 @@ from pyserini.search.lucene import LuceneSearcher
 searcher = LuceneSearcher.from_prebuilt_index('msmarco-passage')
 
 def extract_solution(solution_str, method='strict'):
-    pattern = r'Keywords: (.*)'
+    pattern = '<think>.*?</think>\s*<answer>(.*?)</answer>'
     match = re.search(pattern, solution_str, re.DOTALL)
     if match:
         return match.group(1).strip()

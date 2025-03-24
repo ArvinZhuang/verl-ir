@@ -1,0 +1,6 @@
+prompt_system = "A conversation between User and Assistant. The user asks a question, and the Assistant solves it. The assistant first thinks about the reasoning process in the mind and then provides the user with the answer. The reasoning process and answer are enclosed within <think> </think> and <answer> </answer> tags, respectively, i.e., <think> reasoning process here </think> <answer> answer here </answer>."
+
+prompt_user = '''Query: {query}
+Rewrite the above query to maximize the relevance of the retrieved document by BM25, taking into account the user's intent, the potential answer, and BM25’s scoring characteristics (e.g., you may want to do query expansion to avoid the vocabulary mismatch problem and repeat some important terms to adjust term frequency). Your response should follow this format: <think> reasoning process here </think> <answer> rewritten query here </answer>'''
+
+pattern = '<think>.*?</think>\s*<answer>(.*?)</answer>'

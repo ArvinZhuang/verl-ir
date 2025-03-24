@@ -1,0 +1,6 @@
+prompt_system = "A conversation between User and Assistant. The user asks a question, and the Assistant solves it. The assistant first thinks about the reasoning process in the mind and then provides the user with the answer. The reasoning process and answer are enclosed within <think> </think> and <answer> </answer> tags, respectively, i.e., <think> reasoning process here </think> <answer> answer here </answer>."
+
+prompt_user = '''Query: {query}
+Analyze the above query in your reasoning, then write a passage to answer it. Your response should follow this format: <think> reasoning process here </think> <answer> answer here </answer>'''
+
+pattern = '<think>.*?</think>\s*<answer>(.*?)</answer>'

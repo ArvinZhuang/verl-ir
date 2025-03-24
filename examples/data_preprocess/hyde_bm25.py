@@ -47,9 +47,12 @@ if __name__ == '__main__':
             data = {
                 "data_source": 'hyde-bm25',
                 "prompt": [{
-                    "role": "user",
-                    "content": prompt['prompt_user'].format(query=query),
-                }],
+                    'role': 'system',
+                    'content': prompt['prompt_system']},
+                    {
+                        "role": "user",
+                        "content": prompt['prompt_user'].format(query=query),
+                    }],
                 "ability": "query_expansion",
                 "reward_model": {
                     "style": "rule",

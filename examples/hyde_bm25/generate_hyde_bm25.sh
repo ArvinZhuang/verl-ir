@@ -3,15 +3,15 @@ set -x
 export VLLM_ATTENTION_BACKEND=XFORMERS
 
 for dataset in dl19 dl20; do
-CUDA_VISIBLE_DEVICES=1 python3 -m verl.trainer.main_generation \
+CUDA_VISIBLE_DEVICES=3 python3 -m verl.trainer.main_generation \
     trainer.nnodes=1 \
     trainer.n_gpus_per_node=1 \
-    data.path=./train_data/hyde-bm25/${dataset}.parquet \
+    data.path=./train_data/hyde-bm25-v2/${dataset}.parquet \
     data.prompt_key=prompt \
     data.n_samples=1 \
     data.batch_size=16 \
-    data.output_path=./generate_data/hyde-bm25/${dataset}.parquet \
-    model.path=/scratch3/zhu042/verl-ir/checkpoints/verl_grpo_hyde_bm25/qwen2.5_7b_hyde_bm25/global_step_140/actor/huggingface \
+    data.output_path=./generate_data/hyde-bm25-v2/${dataset}.parquet \
+    model.path=/scratch3/zhu042/verl-ir/checkpoints/verl_grpo_hyde_bm25/qwen2.5_7b_hyde_bm25_v2/global_step_360/actor/huggingface \
     +model.trust_remote_code=True \
     rollout.dtype=bfloat16 \
     rollout.temperature=0.0 \
